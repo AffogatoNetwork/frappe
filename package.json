@@ -3,20 +3,22 @@
   "version": "1.0.0",
   "description": "",
   "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "dotenv": "^6.2.0",
+    "openzeppelin-solidity": "^2.1.1",
+    "truffle-hdwallet-provider": "^1.0.2"
+  },
+  "devDependencies": {
+    "chai-bignumber": "^3.0.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/AffogatoNetwork/frappe.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/AffogatoNetwork/frappe/issues"
-  },
-  "homepage": "https://github.com/AffogatoNetwork/frappe#readme",
-  "dependencies": {
-    "dotenv": "^8.0.0"
-  }
+  "author": "Crisgarner",
+  "license": "ISC"
 }
