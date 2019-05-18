@@ -4,6 +4,7 @@ import Web3 from "web3";
 import Fortmatic from "fortmatic";
 import "./App.css";
 import Header from "./components/Header";
+import FormView from "./components/FormView.js";
 
 class App extends Component {
   state = { storageValue: 0, web3: null, accounts: null, contract: null };
@@ -12,7 +13,7 @@ class App extends Component {
     try {
       // Get network provider and web3 instance.
       // const web3 = await getWeb3();
-      let fm = new Fortmatic("pk_test_C6808B2B488687F6");
+      let fm = new Fortmatic("pk_test_C6808B2B488687F6", "kovan");
       let web3;
       // Post EIP-1102 update which MetaMask no longer injects web3
       if (window.ethereum) {
@@ -75,7 +76,10 @@ class App extends Component {
       return <div>Loading Web3, accounts, and contract...</div>;
     }
     return (
-      <Header account={accounts[0]} web3={window.web3} contracts={contract} />
+      <>
+        <Header account={accounts[0]} web3={window.web3} contracts={contract} />
+        <FormView account={accounts[0]} />
+      </>
     );
   }
 }
