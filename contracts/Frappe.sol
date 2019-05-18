@@ -12,7 +12,7 @@ contract Frappe {
 
     KyberNetworkProxy internal _kyberNetworkProxy;
 
-    function Frappe(KyberNetworkProxy _networkProxy) {
+    function Frappe(KyberNetworkProxy _networkProxy) public {
         _kyberNetworkProxy = _networkProxy;
     }
 
