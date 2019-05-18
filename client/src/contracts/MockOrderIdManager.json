@@ -1,0 +1,2155 @@
+{
+  "contractName": "MockOrderIdManager",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "NUM_ORDERS",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "orderId",
+          "type": "uint256"
+        }
+      ],
+      "name": "NewOrderId",
+      "type": "event"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "firstId",
+          "type": "uint256"
+        }
+      ],
+      "name": "allocatOrderIds",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "fetchNewOrderId",
+      "outputs": [
+        {
+          "name": "orderId",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "orderId",
+          "type": "uint32"
+        }
+      ],
+      "name": "releaseOrderId",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getTakenOrdersBitMap",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getFirstOrderId",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint32"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "isOrderAllocationRequired",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.4.18+commit.9cf6e910\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[],\"name\":\"NUM_ORDERS\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"getTakenOrdersBitMap\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"getFirstOrderId\",\"outputs\":[{\"name\":\"\",\"type\":\"uint32\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"isOrderAllocationRequired\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"orderId\",\"type\":\"uint32\"}],\"name\":\"releaseOrderId\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"fetchNewOrderId\",\"outputs\":[{\"name\":\"orderId\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"firstId\",\"type\":\"uint256\"}],\"name\":\"allocatOrderIds\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"orderId\",\"type\":\"uint256\"}],\"name\":\"NewOrderId\",\"type\":\"event\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/oscarr/Ethereum/frappe/contracts/permissionless/mock/MockOrderIdManager.sol\":\"MockOrderIdManager\"},\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/oscarr/Ethereum/frappe/contracts/permissionless/OrderIdManager.sol\":{\"keccak256\":\"0xe4861835db44ef4966eddcff6e941afb52408af99ad584f3ee15d57a9ca8bb93\",\"urls\":[\"bzzr://820e096d74b83224ed4f8b1f6f2607fb57b4b6ec66ffffa5f611c09a357e64e3\"]},\"/Users/oscarr/Ethereum/frappe/contracts/permissionless/mock/MockOrderIdManager.sol\":{\"keccak256\":\"0xadba3908b3a5071dd85881aaa84facf3e1ab3cbf11ce8dc54490804724a216e0\",\"urls\":[\"bzzr://f286678d104ce1a7d274a70e003321ea6a60af5ef49d18815bb7d60ecc660949\"]}},\"version\":1}",
+  "bytecode": "0x6060604052341561000f57600080fd5b61046f8061001e6000396000f300606060405260043610610083576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806304068ae2146100885780630be423f8146100b157806321b741e9146100da5780638ed44f181461010f578063a24c0c821461013c578063d4fa1b8414610165578063de11cbf41461018e575b600080fd5b341561009357600080fd5b61009b6101b1565b6040518082815260200191505060405180910390f35b34156100bc57600080fd5b6100c46101b6565b6040518082815260200191505060405180910390f35b34156100e557600080fd5b6100ed6101c2565b604051808263ffffffff1663ffffffff16815260200191505060405180910390f35b341561011a57600080fd5b6101226101de565b604051808215151515815260200191505060405180910390f35b341561014757600080fd5b610163600480803563ffffffff169060200190919050506101ef565b005b341561017057600080fd5b6101786101fe565b6040518082815260200191505060405180910390f35b341561019957600080fd5b6101af600480803590602001909190505061024f565b005b602081565b60008060010154905090565b60008060000160009054906101000a900463ffffffff16905090565b60006101ea6000610268565b905090565b6101fa60008261029f565b5050565b600061020a6000610367565b63ffffffff1690507fd5717c284e46061bdc0b3b75e5cb3645f34417cbd74ca53b845d2f967882afc6816040518082815260200191505060405180910390a180905090565b61025a6000826103de565b151561026557600080fd5b50565b6000808260000160009054906101000a900463ffffffff1663ffffffff161415610295576001905061029a565b600090505b919050565b60008060008460000160009054906101000a900463ffffffff1663ffffffff168463ffffffff16101515156102d357600080fd5b60208560000160009054906101000a900463ffffffff1663ffffffff16018463ffffffff1610151561030457600080fd5b8460000160009054906101000a900463ffffffff1663ffffffff168463ffffffff160391508160019060020a02905060008560010154821611151561034857600080fd5b8019856001016000828254169250508190555060019250505092915050565b6000806000808460010154925060019150600090505b60208110156103d157600082841614156103c0578183178560010181905550808560000160009054906101000a900463ffffffff1663ffffffff160193506103d6565b60028202915080600101905061037d565b600080fd5b505050919050565b6000808360000160009054906101000a900463ffffffff1663ffffffff16111561040b576000905061043d565b818360000160006101000a81548163ffffffff021916908363ffffffff16021790555060008360010181905550600190505b929150505600a165627a7a7230582041d153784bbd46951825c8ebfa7d0bea0e953ac607e4f5cc84cc214196de83080029",
+  "deployedBytecode": "0x606060405260043610610083576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806304068ae2146100885780630be423f8146100b157806321b741e9146100da5780638ed44f181461010f578063a24c0c821461013c578063d4fa1b8414610165578063de11cbf41461018e575b600080fd5b341561009357600080fd5b61009b6101b1565b6040518082815260200191505060405180910390f35b34156100bc57600080fd5b6100c46101b6565b6040518082815260200191505060405180910390f35b34156100e557600080fd5b6100ed6101c2565b604051808263ffffffff1663ffffffff16815260200191505060405180910390f35b341561011a57600080fd5b6101226101de565b604051808215151515815260200191505060405180910390f35b341561014757600080fd5b610163600480803563ffffffff169060200190919050506101ef565b005b341561017057600080fd5b6101786101fe565b6040518082815260200191505060405180910390f35b341561019957600080fd5b6101af600480803590602001909190505061024f565b005b602081565b60008060010154905090565b60008060000160009054906101000a900463ffffffff16905090565b60006101ea6000610268565b905090565b6101fa60008261029f565b5050565b600061020a6000610367565b63ffffffff1690507fd5717c284e46061bdc0b3b75e5cb3645f34417cbd74ca53b845d2f967882afc6816040518082815260200191505060405180910390a180905090565b61025a6000826103de565b151561026557600080fd5b50565b6000808260000160009054906101000a900463ffffffff1663ffffffff161415610295576001905061029a565b600090505b919050565b60008060008460000160009054906101000a900463ffffffff1663ffffffff168463ffffffff16101515156102d357600080fd5b60208560000160009054906101000a900463ffffffff1663ffffffff16018463ffffffff1610151561030457600080fd5b8460000160009054906101000a900463ffffffff1663ffffffff168463ffffffff160391508160019060020a02905060008560010154821611151561034857600080fd5b8019856001016000828254169250508190555060019250505092915050565b6000806000808460010154925060019150600090505b60208110156103d157600082841614156103c0578183178560010181905550808560000160009054906101000a900463ffffffff1663ffffffff160193506103d6565b60028202915080600101905061037d565b600080fd5b505050919050565b6000808360000160009054906101000a900463ffffffff1663ffffffff16111561040b576000905061043d565b818360000160006101000a81548163ffffffff021916908363ffffffff16021790555060008360010181905550600190505b929150505600a165627a7a7230582041d153784bbd46951825c8ebfa7d0bea0e953ac607e4f5cc84cc214196de83080029",
+  "sourceMap": "60:869:68:-;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "60:869:68:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;143:36:59;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;581:108:68;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;695:103;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;804:123;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;475:100;;;;;;;;;;;;;;;;;;;;;;;;;;;;304:165;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;143:118;;;;;;;;;;;;;;;;;;;;;;;;;;:36:59;177:2;143:36;:::o;581:108:68:-;633:7;659:11;:23;;;652:30;;581:108;:::o;695:103::-;742:6;767:11;:24;;;;;;;;;;;;760:31;;695:103;:::o;804:123::-;861:4;884:36;908:11;884:23;:36::i;:::-;877:43;;804:123;:::o;475:100::-;532:36;547:11;560:7;532:14;:36::i;:::-;;475:100;:::o;304:165::-;347:12;381:28;397:11;381:15;:28::i;:::-;371:38;;;;419:19;430:7;419:19;;;;;;;;;;;;;;;;;;455:7;448:14;;304:165;:::o;143:118::-;207:46;224:11;244:7;207:16;:46::i;:::-;199:55;;;;;;;;143:118;:::o;1585:179:59:-;1673:4;1721:1;1694:10;:23;;;;;;;;;;;;:28;;;1690:45;;;1731:4;1724:11;;;;1690:45;1752:5;1745:12;;1585:179;;;;:::o;729:495::-;834:4;975:16;1049:15;873:10;:23;;;;;;;;;;;;862:34;;:7;:34;;;;854:43;;;;;;;;177:2;926:10;:23;;;;;;;;;;;;:36;;;915:7;:48;;;907:57;;;;;;;;1015:10;:23;;;;;;;;;;;;1010:29;;999:7;994:13;;:45;975:64;;1078:11;1072:1;1067:22;;;;1049:40;;1146:1;1121:10;:22;;;1108:10;:35;:39;1100:48;;;;;;;;1186:10;1185:11;1159:10;:22;;;:37;;;;;;;;;;;1213:4;1206:11;;729:495;;;;;;:::o;186:497::-;276:6;298:16;349:15;384:6;317:10;:22;;;298:41;;367:1;349:19;;393:1;384:10;;379:279;177:2;396:1;:14;379:279;;;466:1;451:10;437:11;:24;436:31;432:186;;;526:10;512:11;:24;487:10;:22;;:49;;;;600:1;573:10;:23;;;;;;;;;;;;568:29;;:33;554:49;;;;432:186;646:1;632:15;;;;412:3;;;;;379:279;;;668:8;;;186:497;;;;;;;:::o;1230:349::-;1369:4;1420:1;1393:11;:24;;;;;;;;;;;;:28;;;1389:71;;;1444:5;1437:12;;;;1389:71;1497:16;1470:11;:24;;;:43;;;;;;;;;;;;;;;;;;1549:1;1523:11;:23;;:27;;;;1568:4;1561:11;;1230:349;;;;;:::o",
+  "source": "pragma solidity 0.4.18;\n\n\nimport \"../OrderIdManager.sol\";\n\n\ncontract MockOrderIdManager is OrderIdManager {\n\n    OrderIdData orderIdData;\n\n    function allocatOrderIds(uint firstId) public {\n        require(allocateOrderIds(orderIdData, uint32(firstId)));\n    }\n\n    event NewOrderId(uint orderId);\n\n    function fetchNewOrderId() public returns (uint orderId) {\n        orderId = fetchNewOrderId(orderIdData);\n        NewOrderId(orderId);\n        return orderId;\n    }\n\n    function releaseOrderId(uint32 orderId) public {\n        releaseOrderId(orderIdData, orderId);\n    }\n\n    function getTakenOrdersBitMap() public view returns(uint256) {\n        return orderIdData.takenBitmap;\n    }\n\n    function getFirstOrderId() public view returns(uint32) {\n        return orderIdData.firstOrderId;\n    }\n\n    function isOrderAllocationRequired() public view returns(bool) {\n        return orderAllocationRequired(orderIdData);\n    }\n}\n",
+  "sourcePath": "/Users/oscarr/Ethereum/frappe/contracts/permissionless/mock/MockOrderIdManager.sol",
+  "ast": {
+    "absolutePath": "/Users/oscarr/Ethereum/frappe/contracts/permissionless/mock/MockOrderIdManager.sol",
+    "exportedSymbols": {
+      "MockOrderIdManager": [
+        25607
+      ]
+    },
+    "id": 25608,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 25525,
+        "literals": [
+          "solidity",
+          "0.4",
+          ".18"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:68"
+      },
+      {
+        "absolutePath": "/Users/oscarr/Ethereum/frappe/contracts/permissionless/OrderIdManager.sol",
+        "file": "../OrderIdManager.sol",
+        "id": 25526,
+        "nodeType": "ImportDirective",
+        "scope": 25608,
+        "sourceUnit": 20715,
+        "src": "26:31:68",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": [],
+            "baseName": {
+              "contractScope": null,
+              "id": 25527,
+              "name": "OrderIdManager",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 20714,
+              "src": "91:14:68",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_OrderIdManager_$20714",
+                "typeString": "contract OrderIdManager"
+              }
+            },
+            "id": 25528,
+            "nodeType": "InheritanceSpecifier",
+            "src": "91:14:68"
+          }
+        ],
+        "contractDependencies": [
+          20714
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 25607,
+        "linearizedBaseContracts": [
+          25607,
+          20714
+        ],
+        "name": "MockOrderIdManager",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 25530,
+            "name": "orderIdData",
+            "nodeType": "VariableDeclaration",
+            "scope": 25607,
+            "src": "113:23:68",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_struct$_OrderIdData_$20499_storage",
+              "typeString": "struct OrderIdManager.OrderIdData storage ref"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 25529,
+              "name": "OrderIdData",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 20499,
+              "src": "113:11:68",
+              "typeDescriptions": {
+                "typeIdentifier": "t_struct$_OrderIdData_$20499_storage_ptr",
+                "typeString": "struct OrderIdManager.OrderIdData storage pointer"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 25544,
+              "nodeType": "Block",
+              "src": "189:72:68",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "arguments": [
+                          {
+                            "argumentTypes": null,
+                            "id": 25537,
+                            "name": "orderIdData",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 25530,
+                            "src": "224:11:68",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_OrderIdData_$20499_storage",
+                              "typeString": "struct OrderIdManager.OrderIdData storage ref"
+                            }
+                          },
+                          {
+                            "argumentTypes": null,
+                            "arguments": [
+                              {
+                                "argumentTypes": null,
+                                "id": 25539,
+                                "name": "firstId",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 25532,
+                                "src": "244:7:68",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                }
+                              }
+                            ],
+                            "expression": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                }
+                              ],
+                              "id": 25538,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "nodeType": "ElementaryTypeNameExpression",
+                              "src": "237:6:68",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_type$_t_uint32_$",
+                                "typeString": "type(uint32)"
+                              },
+                              "typeName": "uint32"
+                            },
+                            "id": 25540,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "kind": "typeConversion",
+                            "lValueRequested": false,
+                            "names": [],
+                            "nodeType": "FunctionCall",
+                            "src": "237:15:68",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint32",
+                              "typeString": "uint32"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_struct$_OrderIdData_$20499_storage",
+                              "typeString": "struct OrderIdManager.OrderIdData storage ref"
+                            },
+                            {
+                              "typeIdentifier": "t_uint32",
+                              "typeString": "uint32"
+                            }
+                          ],
+                          "id": 25536,
+                          "name": "allocateOrderIds",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 20660,
+                          "src": "207:16:68",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_internal_nonpayable$_t_struct$_OrderIdData_$20499_storage_ptr_$_t_uint32_$returns$_t_bool_$",
+                            "typeString": "function (struct OrderIdManager.OrderIdData storage pointer,uint32) returns (bool)"
+                          }
+                        },
+                        "id": 25541,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "207:46:68",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 25535,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 29914,
+                      "src": "199:7:68",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                        "typeString": "function (bool) pure"
+                      }
+                    },
+                    "id": 25542,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "199:55:68",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 25543,
+                  "nodeType": "ExpressionStatement",
+                  "src": "199:55:68"
+                }
+              ]
+            },
+            "id": 25545,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "allocatOrderIds",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 25533,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 25532,
+                  "name": "firstId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 25545,
+                  "src": "168:12:68",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 25531,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "168:4:68",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "167:14:68"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 25534,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "189:0:68"
+            },
+            "scope": 25607,
+            "src": "143:118:68",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "anonymous": false,
+            "id": 25549,
+            "name": "NewOrderId",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 25548,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 25547,
+                  "indexed": false,
+                  "name": "orderId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 25549,
+                  "src": "284:12:68",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 25546,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "284:4:68",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "283:14:68"
+            },
+            "src": "267:31:68"
+          },
+          {
+            "body": {
+              "id": 25566,
+              "nodeType": "Block",
+              "src": "361:108:68",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 25558,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 25554,
+                      "name": "orderId",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 25552,
+                      "src": "371:7:68",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 25556,
+                          "name": "orderIdData",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 25530,
+                          "src": "397:11:68",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_OrderIdData_$20499_storage",
+                            "typeString": "struct OrderIdManager.OrderIdData storage ref"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_struct$_OrderIdData_$20499_storage",
+                            "typeString": "struct OrderIdManager.OrderIdData storage ref"
+                          }
+                        ],
+                        "id": 25555,
+                        "name": "fetchNewOrderId",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [
+                          25567,
+                          20564
+                        ],
+                        "referencedDeclaration": 20564,
+                        "src": "381:15:68",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_function_internal_nonpayable$_t_struct$_OrderIdData_$20499_storage_ptr_$returns$_t_uint32_$",
+                          "typeString": "function (struct OrderIdManager.OrderIdData storage pointer) returns (uint32)"
+                        }
+                      },
+                      "id": 25557,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "functionCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "381:28:68",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint32",
+                        "typeString": "uint32"
+                      }
+                    },
+                    "src": "371:38:68",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 25559,
+                  "nodeType": "ExpressionStatement",
+                  "src": "371:38:68"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 25561,
+                        "name": "orderId",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 25552,
+                        "src": "430:7:68",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 25560,
+                      "name": "NewOrderId",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 25549,
+                      "src": "419:10:68",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_uint256_$returns$__$",
+                        "typeString": "function (uint256)"
+                      }
+                    },
+                    "id": 25562,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "419:19:68",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 25563,
+                  "nodeType": "ExpressionStatement",
+                  "src": "419:19:68"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 25564,
+                    "name": "orderId",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 25552,
+                    "src": "455:7:68",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 25553,
+                  "id": 25565,
+                  "nodeType": "Return",
+                  "src": "448:14:68"
+                }
+              ]
+            },
+            "id": 25567,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "fetchNewOrderId",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 25550,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "328:2:68"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 25553,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 25552,
+                  "name": "orderId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 25567,
+                  "src": "347:12:68",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 25551,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "347:4:68",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "346:14:68"
+            },
+            "scope": 25607,
+            "src": "304:165:68",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 25577,
+              "nodeType": "Block",
+              "src": "522:53:68",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 25573,
+                        "name": "orderIdData",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 25530,
+                        "src": "547:11:68",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_OrderIdData_$20499_storage",
+                          "typeString": "struct OrderIdManager.OrderIdData storage ref"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 25574,
+                        "name": "orderId",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 25569,
+                        "src": "560:7:68",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint32",
+                          "typeString": "uint32"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_struct$_OrderIdData_$20499_storage",
+                          "typeString": "struct OrderIdManager.OrderIdData storage ref"
+                        },
+                        {
+                          "typeIdentifier": "t_uint32",
+                          "typeString": "uint32"
+                        }
+                      ],
+                      "id": 25572,
+                      "name": "releaseOrderId",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        25578,
+                        20628
+                      ],
+                      "referencedDeclaration": 20628,
+                      "src": "532:14:68",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_struct$_OrderIdData_$20499_storage_ptr_$_t_uint32_$returns$_t_bool_$",
+                        "typeString": "function (struct OrderIdManager.OrderIdData storage pointer,uint32) returns (bool)"
+                      }
+                    },
+                    "id": 25575,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "532:36:68",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 25576,
+                  "nodeType": "ExpressionStatement",
+                  "src": "532:36:68"
+                }
+              ]
+            },
+            "id": 25578,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "releaseOrderId",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 25570,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 25569,
+                  "name": "orderId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 25578,
+                  "src": "499:14:68",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 25568,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "499:6:68",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "498:16:68"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 25571,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "522:0:68"
+            },
+            "scope": 25607,
+            "src": "475:100:68",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 25586,
+              "nodeType": "Block",
+              "src": "642:47:68",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "expression": {
+                      "argumentTypes": null,
+                      "id": 25583,
+                      "name": "orderIdData",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 25530,
+                      "src": "659:11:68",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_OrderIdData_$20499_storage",
+                        "typeString": "struct OrderIdManager.OrderIdData storage ref"
+                      }
+                    },
+                    "id": 25584,
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "takenBitmap",
+                    "nodeType": "MemberAccess",
+                    "referencedDeclaration": 20498,
+                    "src": "659:23:68",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 25582,
+                  "id": 25585,
+                  "nodeType": "Return",
+                  "src": "652:30:68"
+                }
+              ]
+            },
+            "id": 25587,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getTakenOrdersBitMap",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 25579,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "610:2:68"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 25582,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 25581,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 25587,
+                  "src": "633:7:68",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 25580,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "633:7:68",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "632:9:68"
+            },
+            "scope": 25607,
+            "src": "581:108:68",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 25595,
+              "nodeType": "Block",
+              "src": "750:48:68",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "expression": {
+                      "argumentTypes": null,
+                      "id": 25592,
+                      "name": "orderIdData",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 25530,
+                      "src": "767:11:68",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_OrderIdData_$20499_storage",
+                        "typeString": "struct OrderIdManager.OrderIdData storage ref"
+                      }
+                    },
+                    "id": 25593,
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "firstOrderId",
+                    "nodeType": "MemberAccess",
+                    "referencedDeclaration": 20496,
+                    "src": "767:24:68",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "functionReturnParameters": 25591,
+                  "id": 25594,
+                  "nodeType": "Return",
+                  "src": "760:31:68"
+                }
+              ]
+            },
+            "id": 25596,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getFirstOrderId",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 25588,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "719:2:68"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 25591,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 25590,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 25596,
+                  "src": "742:6:68",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 25589,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "742:6:68",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "741:8:68"
+            },
+            "scope": 25607,
+            "src": "695:103:68",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 25605,
+              "nodeType": "Block",
+              "src": "867:60:68",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 25602,
+                        "name": "orderIdData",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 25530,
+                        "src": "908:11:68",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_OrderIdData_$20499_storage",
+                          "typeString": "struct OrderIdManager.OrderIdData storage ref"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_struct$_OrderIdData_$20499_storage",
+                          "typeString": "struct OrderIdManager.OrderIdData storage ref"
+                        }
+                      ],
+                      "id": 25601,
+                      "name": "orderAllocationRequired",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 20677,
+                      "src": "884:23:68",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_view$_t_struct$_OrderIdData_$20499_storage_ptr_$returns$_t_bool_$",
+                        "typeString": "function (struct OrderIdManager.OrderIdData storage pointer) view returns (bool)"
+                      }
+                    },
+                    "id": 25603,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "884:36:68",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "functionReturnParameters": 25600,
+                  "id": 25604,
+                  "nodeType": "Return",
+                  "src": "877:43:68"
+                }
+              ]
+            },
+            "id": 25606,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "isOrderAllocationRequired",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 25597,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "838:2:68"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 25600,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 25599,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 25606,
+                  "src": "861:4:68",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 25598,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "861:4:68",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "860:6:68"
+            },
+            "scope": 25607,
+            "src": "804:123:68",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 25608,
+        "src": "60:869:68"
+      }
+    ],
+    "src": "0:930:68"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/oscarr/Ethereum/frappe/contracts/permissionless/mock/MockOrderIdManager.sol",
+    "exportedSymbols": {
+      "MockOrderIdManager": [
+        25607
+      ]
+    },
+    "id": 25608,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 25525,
+        "literals": [
+          "solidity",
+          "0.4",
+          ".18"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:68"
+      },
+      {
+        "absolutePath": "/Users/oscarr/Ethereum/frappe/contracts/permissionless/OrderIdManager.sol",
+        "file": "../OrderIdManager.sol",
+        "id": 25526,
+        "nodeType": "ImportDirective",
+        "scope": 25608,
+        "sourceUnit": 20715,
+        "src": "26:31:68",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": [],
+            "baseName": {
+              "contractScope": null,
+              "id": 25527,
+              "name": "OrderIdManager",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 20714,
+              "src": "91:14:68",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_OrderIdManager_$20714",
+                "typeString": "contract OrderIdManager"
+              }
+            },
+            "id": 25528,
+            "nodeType": "InheritanceSpecifier",
+            "src": "91:14:68"
+          }
+        ],
+        "contractDependencies": [
+          20714
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 25607,
+        "linearizedBaseContracts": [
+          25607,
+          20714
+        ],
+        "name": "MockOrderIdManager",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 25530,
+            "name": "orderIdData",
+            "nodeType": "VariableDeclaration",
+            "scope": 25607,
+            "src": "113:23:68",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_struct$_OrderIdData_$20499_storage",
+              "typeString": "struct OrderIdManager.OrderIdData storage ref"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 25529,
+              "name": "OrderIdData",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 20499,
+              "src": "113:11:68",
+              "typeDescriptions": {
+                "typeIdentifier": "t_struct$_OrderIdData_$20499_storage_ptr",
+                "typeString": "struct OrderIdManager.OrderIdData storage pointer"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 25544,
+              "nodeType": "Block",
+              "src": "189:72:68",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "arguments": [
+                          {
+                            "argumentTypes": null,
+                            "id": 25537,
+                            "name": "orderIdData",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 25530,
+                            "src": "224:11:68",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_OrderIdData_$20499_storage",
+                              "typeString": "struct OrderIdManager.OrderIdData storage ref"
+                            }
+                          },
+                          {
+                            "argumentTypes": null,
+                            "arguments": [
+                              {
+                                "argumentTypes": null,
+                                "id": 25539,
+                                "name": "firstId",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 25532,
+                                "src": "244:7:68",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                }
+                              }
+                            ],
+                            "expression": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                }
+                              ],
+                              "id": 25538,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "nodeType": "ElementaryTypeNameExpression",
+                              "src": "237:6:68",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_type$_t_uint32_$",
+                                "typeString": "type(uint32)"
+                              },
+                              "typeName": "uint32"
+                            },
+                            "id": 25540,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "kind": "typeConversion",
+                            "lValueRequested": false,
+                            "names": [],
+                            "nodeType": "FunctionCall",
+                            "src": "237:15:68",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint32",
+                              "typeString": "uint32"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_struct$_OrderIdData_$20499_storage",
+                              "typeString": "struct OrderIdManager.OrderIdData storage ref"
+                            },
+                            {
+                              "typeIdentifier": "t_uint32",
+                              "typeString": "uint32"
+                            }
+                          ],
+                          "id": 25536,
+                          "name": "allocateOrderIds",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 20660,
+                          "src": "207:16:68",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_internal_nonpayable$_t_struct$_OrderIdData_$20499_storage_ptr_$_t_uint32_$returns$_t_bool_$",
+                            "typeString": "function (struct OrderIdManager.OrderIdData storage pointer,uint32) returns (bool)"
+                          }
+                        },
+                        "id": 25541,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "207:46:68",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 25535,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 29914,
+                      "src": "199:7:68",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                        "typeString": "function (bool) pure"
+                      }
+                    },
+                    "id": 25542,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "199:55:68",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 25543,
+                  "nodeType": "ExpressionStatement",
+                  "src": "199:55:68"
+                }
+              ]
+            },
+            "id": 25545,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "allocatOrderIds",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 25533,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 25532,
+                  "name": "firstId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 25545,
+                  "src": "168:12:68",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 25531,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "168:4:68",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "167:14:68"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 25534,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "189:0:68"
+            },
+            "scope": 25607,
+            "src": "143:118:68",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "anonymous": false,
+            "id": 25549,
+            "name": "NewOrderId",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 25548,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 25547,
+                  "indexed": false,
+                  "name": "orderId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 25549,
+                  "src": "284:12:68",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 25546,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "284:4:68",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "283:14:68"
+            },
+            "src": "267:31:68"
+          },
+          {
+            "body": {
+              "id": 25566,
+              "nodeType": "Block",
+              "src": "361:108:68",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 25558,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 25554,
+                      "name": "orderId",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 25552,
+                      "src": "371:7:68",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 25556,
+                          "name": "orderIdData",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 25530,
+                          "src": "397:11:68",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_OrderIdData_$20499_storage",
+                            "typeString": "struct OrderIdManager.OrderIdData storage ref"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_struct$_OrderIdData_$20499_storage",
+                            "typeString": "struct OrderIdManager.OrderIdData storage ref"
+                          }
+                        ],
+                        "id": 25555,
+                        "name": "fetchNewOrderId",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [
+                          25567,
+                          20564
+                        ],
+                        "referencedDeclaration": 20564,
+                        "src": "381:15:68",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_function_internal_nonpayable$_t_struct$_OrderIdData_$20499_storage_ptr_$returns$_t_uint32_$",
+                          "typeString": "function (struct OrderIdManager.OrderIdData storage pointer) returns (uint32)"
+                        }
+                      },
+                      "id": 25557,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "functionCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "381:28:68",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint32",
+                        "typeString": "uint32"
+                      }
+                    },
+                    "src": "371:38:68",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 25559,
+                  "nodeType": "ExpressionStatement",
+                  "src": "371:38:68"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 25561,
+                        "name": "orderId",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 25552,
+                        "src": "430:7:68",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 25560,
+                      "name": "NewOrderId",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 25549,
+                      "src": "419:10:68",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_uint256_$returns$__$",
+                        "typeString": "function (uint256)"
+                      }
+                    },
+                    "id": 25562,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "419:19:68",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 25563,
+                  "nodeType": "ExpressionStatement",
+                  "src": "419:19:68"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 25564,
+                    "name": "orderId",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 25552,
+                    "src": "455:7:68",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 25553,
+                  "id": 25565,
+                  "nodeType": "Return",
+                  "src": "448:14:68"
+                }
+              ]
+            },
+            "id": 25567,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "fetchNewOrderId",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 25550,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "328:2:68"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 25553,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 25552,
+                  "name": "orderId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 25567,
+                  "src": "347:12:68",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 25551,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "347:4:68",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "346:14:68"
+            },
+            "scope": 25607,
+            "src": "304:165:68",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 25577,
+              "nodeType": "Block",
+              "src": "522:53:68",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 25573,
+                        "name": "orderIdData",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 25530,
+                        "src": "547:11:68",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_OrderIdData_$20499_storage",
+                          "typeString": "struct OrderIdManager.OrderIdData storage ref"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 25574,
+                        "name": "orderId",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 25569,
+                        "src": "560:7:68",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint32",
+                          "typeString": "uint32"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_struct$_OrderIdData_$20499_storage",
+                          "typeString": "struct OrderIdManager.OrderIdData storage ref"
+                        },
+                        {
+                          "typeIdentifier": "t_uint32",
+                          "typeString": "uint32"
+                        }
+                      ],
+                      "id": 25572,
+                      "name": "releaseOrderId",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        25578,
+                        20628
+                      ],
+                      "referencedDeclaration": 20628,
+                      "src": "532:14:68",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_struct$_OrderIdData_$20499_storage_ptr_$_t_uint32_$returns$_t_bool_$",
+                        "typeString": "function (struct OrderIdManager.OrderIdData storage pointer,uint32) returns (bool)"
+                      }
+                    },
+                    "id": 25575,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "532:36:68",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 25576,
+                  "nodeType": "ExpressionStatement",
+                  "src": "532:36:68"
+                }
+              ]
+            },
+            "id": 25578,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "releaseOrderId",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 25570,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 25569,
+                  "name": "orderId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 25578,
+                  "src": "499:14:68",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 25568,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "499:6:68",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "498:16:68"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 25571,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "522:0:68"
+            },
+            "scope": 25607,
+            "src": "475:100:68",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 25586,
+              "nodeType": "Block",
+              "src": "642:47:68",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "expression": {
+                      "argumentTypes": null,
+                      "id": 25583,
+                      "name": "orderIdData",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 25530,
+                      "src": "659:11:68",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_OrderIdData_$20499_storage",
+                        "typeString": "struct OrderIdManager.OrderIdData storage ref"
+                      }
+                    },
+                    "id": 25584,
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "takenBitmap",
+                    "nodeType": "MemberAccess",
+                    "referencedDeclaration": 20498,
+                    "src": "659:23:68",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 25582,
+                  "id": 25585,
+                  "nodeType": "Return",
+                  "src": "652:30:68"
+                }
+              ]
+            },
+            "id": 25587,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getTakenOrdersBitMap",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 25579,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "610:2:68"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 25582,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 25581,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 25587,
+                  "src": "633:7:68",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 25580,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "633:7:68",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "632:9:68"
+            },
+            "scope": 25607,
+            "src": "581:108:68",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 25595,
+              "nodeType": "Block",
+              "src": "750:48:68",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "expression": {
+                      "argumentTypes": null,
+                      "id": 25592,
+                      "name": "orderIdData",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 25530,
+                      "src": "767:11:68",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_OrderIdData_$20499_storage",
+                        "typeString": "struct OrderIdManager.OrderIdData storage ref"
+                      }
+                    },
+                    "id": 25593,
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "firstOrderId",
+                    "nodeType": "MemberAccess",
+                    "referencedDeclaration": 20496,
+                    "src": "767:24:68",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "functionReturnParameters": 25591,
+                  "id": 25594,
+                  "nodeType": "Return",
+                  "src": "760:31:68"
+                }
+              ]
+            },
+            "id": 25596,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getFirstOrderId",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 25588,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "719:2:68"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 25591,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 25590,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 25596,
+                  "src": "742:6:68",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 25589,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "742:6:68",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "741:8:68"
+            },
+            "scope": 25607,
+            "src": "695:103:68",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 25605,
+              "nodeType": "Block",
+              "src": "867:60:68",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 25602,
+                        "name": "orderIdData",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 25530,
+                        "src": "908:11:68",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_OrderIdData_$20499_storage",
+                          "typeString": "struct OrderIdManager.OrderIdData storage ref"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_struct$_OrderIdData_$20499_storage",
+                          "typeString": "struct OrderIdManager.OrderIdData storage ref"
+                        }
+                      ],
+                      "id": 25601,
+                      "name": "orderAllocationRequired",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 20677,
+                      "src": "884:23:68",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_view$_t_struct$_OrderIdData_$20499_storage_ptr_$returns$_t_bool_$",
+                        "typeString": "function (struct OrderIdManager.OrderIdData storage pointer) view returns (bool)"
+                      }
+                    },
+                    "id": 25603,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "884:36:68",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "functionReturnParameters": 25600,
+                  "id": 25604,
+                  "nodeType": "Return",
+                  "src": "877:43:68"
+                }
+              ]
+            },
+            "id": 25606,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "isOrderAllocationRequired",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 25597,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "838:2:68"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 25600,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 25599,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 25606,
+                  "src": "861:4:68",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 25598,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "861:4:68",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "860:6:68"
+            },
+            "scope": 25607,
+            "src": "804:123:68",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 25608,
+        "src": "60:869:68"
+      }
+    ],
+    "src": "0:930:68"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.18+commit.9cf6e910.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.0.6",
+  "updatedAt": "2019-05-18T17:14:13.499Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

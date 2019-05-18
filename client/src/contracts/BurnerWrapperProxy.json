@@ -1,0 +1,1063 @@
+{
+  "contractName": "BurnerWrapperProxy",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "wallet",
+          "type": "address"
+        }
+      ],
+      "name": "registerWallet",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma solidity 0.4.18;\n\n\ninterface BurnerWrapperProxy {\n    function registerWallet(address wallet) public;\n}\n\n\ncontract KyberRegisterWallet {\n\n    BurnerWrapperProxy public feeBurnerWrapperProxyContract;\n\n    function KyberRegisterWallet(BurnerWrapperProxy feeBurnerWrapperProxy) public {\n        require(feeBurnerWrapperProxy != address(0));\n\n        feeBurnerWrapperProxyContract = feeBurnerWrapperProxy;\n    }\n\n    function registerWallet(address wallet) public {\n        feeBurnerWrapperProxyContract.registerWallet(wallet);\n    }\n}\n",
+  "sourcePath": "/Users/oscarr/Ethereum/frappe/contracts/wrapperContracts/KyberRegisterWallet.sol",
+  "ast": {
+    "absolutePath": "/Users/oscarr/Ethereum/frappe/contracts/wrapperContracts/KyberRegisterWallet.sol",
+    "exportedSymbols": {
+      "BurnerWrapperProxy": [
+        28019
+      ],
+      "KyberRegisterWallet": [
+        28052
+      ]
+    },
+    "id": 28053,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 28013,
+        "literals": [
+          "solidity",
+          "0.4",
+          ".18"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:76"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 28019,
+        "linearizedBaseContracts": [
+          28019
+        ],
+        "name": "BurnerWrapperProxy",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "id": 28018,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "registerWallet",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 28016,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 28015,
+                  "name": "wallet",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 28018,
+                  "src": "85:14:76",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 28014,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "85:7:76",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "84:16:76"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 28017,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "107:0:76"
+            },
+            "scope": 28019,
+            "src": "61:47:76",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 28053,
+        "src": "26:84:76"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 28052,
+        "linearizedBaseContracts": [
+          28052
+        ],
+        "name": "KyberRegisterWallet",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 28021,
+            "name": "feeBurnerWrapperProxyContract",
+            "nodeType": "VariableDeclaration",
+            "scope": 28052,
+            "src": "149:55:76",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_BurnerWrapperProxy_$28019",
+              "typeString": "contract BurnerWrapperProxy"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 28020,
+              "name": "BurnerWrapperProxy",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 28019,
+              "src": "149:18:76",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_BurnerWrapperProxy_$28019",
+                "typeString": "contract BurnerWrapperProxy"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 28038,
+              "nodeType": "Block",
+              "src": "289:125:76",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "id": 28031,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "id": 28027,
+                          "name": "feeBurnerWrapperProxy",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 28023,
+                          "src": "307:21:76",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_contract$_BurnerWrapperProxy_$28019",
+                            "typeString": "contract BurnerWrapperProxy"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "!=",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "arguments": [
+                            {
+                              "argumentTypes": null,
+                              "hexValue": "30",
+                              "id": 28029,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "kind": "number",
+                              "lValueRequested": false,
+                              "nodeType": "Literal",
+                              "src": "340:1:76",
+                              "subdenomination": null,
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_rational_0_by_1",
+                                "typeString": "int_const 0"
+                              },
+                              "value": "0"
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_rational_0_by_1",
+                                "typeString": "int_const 0"
+                              }
+                            ],
+                            "id": 28028,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "lValueRequested": false,
+                            "nodeType": "ElementaryTypeNameExpression",
+                            "src": "332:7:76",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_type$_t_address_$",
+                              "typeString": "type(address)"
+                            },
+                            "typeName": "address"
+                          },
+                          "id": 28030,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "typeConversion",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "332:10:76",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "src": "307:35:76",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 28026,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 29914,
+                      "src": "299:7:76",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                        "typeString": "function (bool) pure"
+                      }
+                    },
+                    "id": 28032,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "299:44:76",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 28033,
+                  "nodeType": "ExpressionStatement",
+                  "src": "299:44:76"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 28036,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 28034,
+                      "name": "feeBurnerWrapperProxyContract",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 28021,
+                      "src": "354:29:76",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_BurnerWrapperProxy_$28019",
+                        "typeString": "contract BurnerWrapperProxy"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 28035,
+                      "name": "feeBurnerWrapperProxy",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 28023,
+                      "src": "386:21:76",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_BurnerWrapperProxy_$28019",
+                        "typeString": "contract BurnerWrapperProxy"
+                      }
+                    },
+                    "src": "354:53:76",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_BurnerWrapperProxy_$28019",
+                      "typeString": "contract BurnerWrapperProxy"
+                    }
+                  },
+                  "id": 28037,
+                  "nodeType": "ExpressionStatement",
+                  "src": "354:53:76"
+                }
+              ]
+            },
+            "id": 28039,
+            "implemented": true,
+            "isConstructor": true,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "KyberRegisterWallet",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 28024,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 28023,
+                  "name": "feeBurnerWrapperProxy",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 28039,
+                  "src": "240:40:76",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_BurnerWrapperProxy_$28019",
+                    "typeString": "contract BurnerWrapperProxy"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 28022,
+                    "name": "BurnerWrapperProxy",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 28019,
+                    "src": "240:18:76",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_BurnerWrapperProxy_$28019",
+                      "typeString": "contract BurnerWrapperProxy"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "239:42:76"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 28025,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "289:0:76"
+            },
+            "scope": 28052,
+            "src": "211:203:76",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 28050,
+              "nodeType": "Block",
+              "src": "467:69:76",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 28047,
+                        "name": "wallet",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 28041,
+                        "src": "522:6:76",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 28044,
+                        "name": "feeBurnerWrapperProxyContract",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 28021,
+                        "src": "477:29:76",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_BurnerWrapperProxy_$28019",
+                          "typeString": "contract BurnerWrapperProxy"
+                        }
+                      },
+                      "id": 28046,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "registerWallet",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 28018,
+                      "src": "477:44:76",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_nonpayable$_t_address_$returns$__$",
+                        "typeString": "function (address) external"
+                      }
+                    },
+                    "id": 28048,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "477:52:76",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 28049,
+                  "nodeType": "ExpressionStatement",
+                  "src": "477:52:76"
+                }
+              ]
+            },
+            "id": 28051,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "registerWallet",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 28042,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 28041,
+                  "name": "wallet",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 28051,
+                  "src": "444:14:76",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 28040,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "444:7:76",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "443:16:76"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 28043,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "467:0:76"
+            },
+            "scope": 28052,
+            "src": "420:116:76",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 28053,
+        "src": "113:425:76"
+      }
+    ],
+    "src": "0:539:76"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/oscarr/Ethereum/frappe/contracts/wrapperContracts/KyberRegisterWallet.sol",
+    "exportedSymbols": {
+      "BurnerWrapperProxy": [
+        28019
+      ],
+      "KyberRegisterWallet": [
+        28052
+      ]
+    },
+    "id": 28053,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 28013,
+        "literals": [
+          "solidity",
+          "0.4",
+          ".18"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:76"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 28019,
+        "linearizedBaseContracts": [
+          28019
+        ],
+        "name": "BurnerWrapperProxy",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "id": 28018,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "registerWallet",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 28016,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 28015,
+                  "name": "wallet",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 28018,
+                  "src": "85:14:76",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 28014,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "85:7:76",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "84:16:76"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 28017,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "107:0:76"
+            },
+            "scope": 28019,
+            "src": "61:47:76",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 28053,
+        "src": "26:84:76"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 28052,
+        "linearizedBaseContracts": [
+          28052
+        ],
+        "name": "KyberRegisterWallet",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 28021,
+            "name": "feeBurnerWrapperProxyContract",
+            "nodeType": "VariableDeclaration",
+            "scope": 28052,
+            "src": "149:55:76",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_BurnerWrapperProxy_$28019",
+              "typeString": "contract BurnerWrapperProxy"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 28020,
+              "name": "BurnerWrapperProxy",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 28019,
+              "src": "149:18:76",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_BurnerWrapperProxy_$28019",
+                "typeString": "contract BurnerWrapperProxy"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 28038,
+              "nodeType": "Block",
+              "src": "289:125:76",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "id": 28031,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "id": 28027,
+                          "name": "feeBurnerWrapperProxy",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 28023,
+                          "src": "307:21:76",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_contract$_BurnerWrapperProxy_$28019",
+                            "typeString": "contract BurnerWrapperProxy"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "!=",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "arguments": [
+                            {
+                              "argumentTypes": null,
+                              "hexValue": "30",
+                              "id": 28029,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "kind": "number",
+                              "lValueRequested": false,
+                              "nodeType": "Literal",
+                              "src": "340:1:76",
+                              "subdenomination": null,
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_rational_0_by_1",
+                                "typeString": "int_const 0"
+                              },
+                              "value": "0"
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_rational_0_by_1",
+                                "typeString": "int_const 0"
+                              }
+                            ],
+                            "id": 28028,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "lValueRequested": false,
+                            "nodeType": "ElementaryTypeNameExpression",
+                            "src": "332:7:76",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_type$_t_address_$",
+                              "typeString": "type(address)"
+                            },
+                            "typeName": "address"
+                          },
+                          "id": 28030,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "typeConversion",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "332:10:76",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "src": "307:35:76",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      ],
+                      "id": 28026,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 29914,
+                      "src": "299:7:76",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                        "typeString": "function (bool) pure"
+                      }
+                    },
+                    "id": 28032,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "299:44:76",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 28033,
+                  "nodeType": "ExpressionStatement",
+                  "src": "299:44:76"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 28036,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 28034,
+                      "name": "feeBurnerWrapperProxyContract",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 28021,
+                      "src": "354:29:76",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_BurnerWrapperProxy_$28019",
+                        "typeString": "contract BurnerWrapperProxy"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 28035,
+                      "name": "feeBurnerWrapperProxy",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 28023,
+                      "src": "386:21:76",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_BurnerWrapperProxy_$28019",
+                        "typeString": "contract BurnerWrapperProxy"
+                      }
+                    },
+                    "src": "354:53:76",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_BurnerWrapperProxy_$28019",
+                      "typeString": "contract BurnerWrapperProxy"
+                    }
+                  },
+                  "id": 28037,
+                  "nodeType": "ExpressionStatement",
+                  "src": "354:53:76"
+                }
+              ]
+            },
+            "id": 28039,
+            "implemented": true,
+            "isConstructor": true,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "KyberRegisterWallet",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 28024,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 28023,
+                  "name": "feeBurnerWrapperProxy",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 28039,
+                  "src": "240:40:76",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_BurnerWrapperProxy_$28019",
+                    "typeString": "contract BurnerWrapperProxy"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 28022,
+                    "name": "BurnerWrapperProxy",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 28019,
+                    "src": "240:18:76",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_BurnerWrapperProxy_$28019",
+                      "typeString": "contract BurnerWrapperProxy"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "239:42:76"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 28025,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "289:0:76"
+            },
+            "scope": 28052,
+            "src": "211:203:76",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 28050,
+              "nodeType": "Block",
+              "src": "467:69:76",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 28047,
+                        "name": "wallet",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 28041,
+                        "src": "522:6:76",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 28044,
+                        "name": "feeBurnerWrapperProxyContract",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 28021,
+                        "src": "477:29:76",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_BurnerWrapperProxy_$28019",
+                          "typeString": "contract BurnerWrapperProxy"
+                        }
+                      },
+                      "id": 28046,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "registerWallet",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 28018,
+                      "src": "477:44:76",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_nonpayable$_t_address_$returns$__$",
+                        "typeString": "function (address) external"
+                      }
+                    },
+                    "id": 28048,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "477:52:76",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 28049,
+                  "nodeType": "ExpressionStatement",
+                  "src": "477:52:76"
+                }
+              ]
+            },
+            "id": 28051,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "registerWallet",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 28042,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 28041,
+                  "name": "wallet",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 28051,
+                  "src": "444:14:76",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 28040,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "444:7:76",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "443:16:76"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 28043,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "467:0:76"
+            },
+            "scope": 28052,
+            "src": "420:116:76",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 28053,
+        "src": "113:425:76"
+      }
+    ],
+    "src": "0:539:76"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.18+commit.9cf6e910.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.0.6",
+  "updatedAt": "2019-05-18T17:14:13.558Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

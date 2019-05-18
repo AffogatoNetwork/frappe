@@ -3,50 +3,26 @@ pragma solidity 0.4.18;
 import "./ERC20Interface.sol";
 import "./KyberNetworkProxy.sol";
 
-contract Frappe is ERC20Interface {
+contract Frappe {
     //It is possible to take minRate from kyber contract, but best to get it as an input from the user.
     ERC20 constant internal ETH_TOKEN_ADDRESS = ERC20(0x00eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee);
 
     event SwapTokenChange(uint balanceBefore, uint balanceAfter, uint change);
     event SwapEtherChange(uint startBalance, uint currentBalance, uint change);
 
+    KyberNetworkProxy internal _kyberNetworkProxy;
+
+    function Frappe(KyberNetworkProxy _networkProxy) {
+        _kyberNetworkProxy = _networkProxy;
+    }
+
     //must have default payable since this contract expected to receive change
     function() public payable {}
 
-
-    //@param _kyberNetworkProxy kyberNetworkProxy contract address
-    //@param srcToken source token contract address
-    //@param srcQty in token wei
-    //@param destToken destination token contract address
-    //@param destAddress address to send swapped tokens to
-    function swapTokenToToken (KyberNetworkProxyInterface _kyberNetworkProxy, ERC20 srcToken, uint srcQty, ERC20 destToken, address destAddress) public {
-        uint minRate;
-
-        //getExpectedRate returns expected rate and slippage rate
-        //we use the slippage rate as the minRate
-        (, minRate) = _kyberNetworkProxy.getExpectedRate(srcToken, destToken, srcQty);
-
-        // Check that the token transferFrom has succeeded
-        require(srcToken.transferFrom(msg.sender, this, srcQty));
-
-        // Mitigate ERC20 Approve front-running attack, by initially setting
-        // allowance to 0
-        require(srcToken.approve(_kyberNetworkProxy, 0));
-
-        // Approve tokens so network can take them during the swap
-        srcToken.approve(address(_kyberNetworkProxy), srcQty);
-        uint destAmount = _kyberNetworkProxy.swapTokenToToken(srcToken, srcQty, destToken, minRate);
-
-        // Send received tokens to destination address
-        require(destToken.transfer(destAddress, destAmount));
-    }
-
-
     //@dev assumed to be receiving ether wei
-    //@param _kyberNetworkProxy kyberNetworkProxy contract address
     //@param token destination token contract address
     //@param destAddress address to send swapped tokens to
-    function swapEtherToToken (KyberNetworkProxyInterface _kyberNetworkProxy, ERC20 token, address destAddress) public payable {
+    function swapEtherToToken (ERC20 token, address destAddress) public payable {
 
         uint minRate;
         (, minRate) = _kyberNetworkProxy.getExpectedRate(ETH_TOKEN_ADDRESS, token, msg.value);
@@ -63,7 +39,7 @@ contract Frappe is ERC20Interface {
     //@param token source token contract address
     //@param tokenQty token wei amount
     //@param destAddress address to send swapped ETH to
-    function swapTokenToEther (KyberNetworkProxyInterface _kyberNetworkProxy, ERC20 token, uint tokenQty, address destAddress) public {
+    function swapTokenToEther (ERC20 token, uint tokenQty, address destAddress) public {
 
         uint minRate;
         (, minRate) = _kyberNetworkProxy.getExpectedRate(token, ETH_TOKEN_ADDRESS, tokenQty);
@@ -80,7 +56,7 @@ contract Frappe is ERC20Interface {
         uint destAmount = _kyberNetworkProxy.swapTokenToEther(token, tokenQty, minRate);
 
         // Send received ethers to destination address
-        require(destAddress.transfer(destAmount));
+        destAddress.transfer(destAmount);
     }
 
 
@@ -92,7 +68,6 @@ contract Frappe is ERC20Interface {
     //@param maxDestQty max number of tokens in swap outcome. will be sent to destAddress
     //@param minRate minimum conversion rate for the swap
     function swapTokenToTokenWithChange (
-        KyberNetworkProxyInterface _kyberNetworkProxy,
         ERC20 srcToken,
         uint srcQty,
         ERC20 destToken,
@@ -102,23 +77,23 @@ contract Frappe is ERC20Interface {
     )
         public
     {
-    uint beforeTransferBalance = srcToken.balanceOf(this);
+        uint beforeTransferBalance = srcToken.balanceOf(this);
 
-    // Check that the token transferFrom has succeeded
-    require(srcToken.transferFrom(msg.sender, this, srcQty));
+        // Check that the token transferFrom has succeeded
+        require(srcToken.transferFrom(msg.sender, this, srcQty));
 
-    // Mitigate ERC20 Approve front-running attack, by initially setting
-    // allowance to 0
-    require(srcToken.approve(_kyberNetworkProxy, 0));
+        // Mitigate ERC20 Approve front-running attack, by initially setting
+        // allowance to 0
+        require(srcToken.approve(_kyberNetworkProxy, 0));
 
-    // Approve tokens so network can take them during the swap
-    srcToken.approve(address(_kyberNetworkProxy), srcQty);
+        // Approve tokens so network can take them during the swap
+        srcToken.approve(address(_kyberNetworkProxy), srcQty);
 
-    _kyberNetworkProxy.trade(srcToken, srcQty, destToken, destAddress, maxDestQty, minRate, 0);
-    uint change = srcToken.balanceOf(this) - beforeTransferBalance;
+        _kyberNetworkProxy.trade(srcToken, srcQty, destToken, destAddress, maxDestQty, minRate, 0);
+        uint change = srcToken.balanceOf(this) - beforeTransferBalance;
 
-    // Return any remaining source tokens to user
-    srcToken.transfer(msg.sender, change);
+        // Return any remaining source tokens to user
+        srcToken.transfer(msg.sender, change);
     }
 
 
@@ -128,7 +103,6 @@ contract Frappe is ERC20Interface {
     //@param maxDestQty max number of tokens in swap outcome. will be sent to destAddress
     //@param minRate minimum conversion rate for the swap
     function swapEtherToTokenWithChange (
-        KyberNetworkProxyInterface _kyberNetworkProxy,
         ERC20 token,
         address destAddress,
         uint maxDestQty,
@@ -161,7 +135,6 @@ contract Frappe is ERC20Interface {
     //@param maxDestQty max number of tokens in swap outcome. will be sent to destAddress
     //@param minRate minimum conversion rate for the swap
     function swapTokenToEtherWithChange (
-        KyberNetworkProxyInterface _kyberNetworkProxy,
         ERC20 token,
         uint tokenQty,
         address destAddress,
@@ -170,7 +143,7 @@ contract Frappe is ERC20Interface {
     )
         public
     {
-    uint beforeTransferBalance = srcToken.balanceOf(this);
+    uint beforeTransferBalance = token.balanceOf(this);
 
     // Check that the token transferFrom has succeeded
     require(token.transferFrom(msg.sender, this, tokenQty));
@@ -183,7 +156,7 @@ contract Frappe is ERC20Interface {
     token.approve(address(_kyberNetworkProxy), tokenQty);
 
     _kyberNetworkProxy.trade(token, tokenQty, ETH_TOKEN_ADDRESS, destAddress, maxDestQty, minRate, 0);
-    uint change = srcToken.balanceOf(this) - beforeTransferBalance;
+    uint change = token.balanceOf(this) - beforeTransferBalance;
 
     // Return any remaining source tokens to user
     token.transfer(msg.sender, change);

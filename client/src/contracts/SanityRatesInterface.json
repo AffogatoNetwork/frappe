@@ -1,0 +1,374 @@
+{
+  "contractName": "SanityRatesInterface",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "src",
+          "type": "address"
+        },
+        {
+          "name": "dest",
+          "type": "address"
+        }
+      ],
+      "name": "getSanityRate",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma solidity 0.4.18;\n\n\nimport \"./ERC20Interface.sol\";\n\ninterface SanityRatesInterface {\n    function getSanityRate(ERC20 src, ERC20 dest) public view returns(uint);\n}\n",
+  "sourcePath": "/Users/oscarr/Ethereum/frappe/contracts/SanityRatesInterface.sol",
+  "ast": {
+    "absolutePath": "/Users/oscarr/Ethereum/frappe/contracts/SanityRatesInterface.sol",
+    "exportedSymbols": {
+      "SanityRatesInterface": [
+        8778
+      ]
+    },
+    "id": 8779,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 8767,
+        "literals": [
+          "solidity",
+          "0.4",
+          ".18"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:19"
+      },
+      {
+        "absolutePath": "/Users/oscarr/Ethereum/frappe/contracts/ERC20Interface.sol",
+        "file": "./ERC20Interface.sol",
+        "id": 8768,
+        "nodeType": "ImportDirective",
+        "scope": 8779,
+        "sourceUnit": 1560,
+        "src": "26:30:19",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 8778,
+        "linearizedBaseContracts": [
+          8778
+        ],
+        "name": "SanityRatesInterface",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "id": 8777,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getSanityRate",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 8773,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8770,
+                  "name": "src",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8777,
+                  "src": "118:9:19",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_ERC20_$1559",
+                    "typeString": "contract ERC20"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 8769,
+                    "name": "ERC20",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 1559,
+                    "src": "118:5:19",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_ERC20_$1559",
+                      "typeString": "contract ERC20"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 8772,
+                  "name": "dest",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8777,
+                  "src": "129:10:19",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_ERC20_$1559",
+                    "typeString": "contract ERC20"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 8771,
+                    "name": "ERC20",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 1559,
+                    "src": "129:5:19",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_ERC20_$1559",
+                      "typeString": "contract ERC20"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "117:23:19"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 8776,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8775,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8777,
+                  "src": "161:4:19",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 8774,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "161:4:19",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "160:6:19"
+            },
+            "scope": 8778,
+            "src": "95:72:19",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 8779,
+        "src": "58:111:19"
+      }
+    ],
+    "src": "0:170:19"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/oscarr/Ethereum/frappe/contracts/SanityRatesInterface.sol",
+    "exportedSymbols": {
+      "SanityRatesInterface": [
+        8778
+      ]
+    },
+    "id": 8779,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 8767,
+        "literals": [
+          "solidity",
+          "0.4",
+          ".18"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:19"
+      },
+      {
+        "absolutePath": "/Users/oscarr/Ethereum/frappe/contracts/ERC20Interface.sol",
+        "file": "./ERC20Interface.sol",
+        "id": 8768,
+        "nodeType": "ImportDirective",
+        "scope": 8779,
+        "sourceUnit": 1560,
+        "src": "26:30:19",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 8778,
+        "linearizedBaseContracts": [
+          8778
+        ],
+        "name": "SanityRatesInterface",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "id": 8777,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getSanityRate",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 8773,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8770,
+                  "name": "src",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8777,
+                  "src": "118:9:19",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_ERC20_$1559",
+                    "typeString": "contract ERC20"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 8769,
+                    "name": "ERC20",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 1559,
+                    "src": "118:5:19",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_ERC20_$1559",
+                      "typeString": "contract ERC20"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 8772,
+                  "name": "dest",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8777,
+                  "src": "129:10:19",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_ERC20_$1559",
+                    "typeString": "contract ERC20"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 8771,
+                    "name": "ERC20",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 1559,
+                    "src": "129:5:19",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_ERC20_$1559",
+                      "typeString": "contract ERC20"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "117:23:19"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 8776,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 8775,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 8777,
+                  "src": "161:4:19",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 8774,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "161:4:19",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "160:6:19"
+            },
+            "scope": 8778,
+            "src": "95:72:19",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 8779,
+        "src": "58:111:19"
+      }
+    ],
+    "src": "0:170:19"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.18+commit.9cf6e910.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.0.6",
+  "updatedAt": "2019-05-18T17:14:13.032Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

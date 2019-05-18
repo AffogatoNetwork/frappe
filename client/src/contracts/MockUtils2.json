@@ -1,0 +1,1375 @@
+{
+  "contractName": "MockUtils2",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "token",
+          "type": "address"
+        },
+        {
+          "name": "user",
+          "type": "address"
+        }
+      ],
+      "name": "getBalance",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "token",
+          "type": "address"
+        }
+      ],
+      "name": "mockGetDecimalsSafe",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "token",
+          "type": "address"
+        }
+      ],
+      "name": "mockSetDecimalsSafe",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "srcAmount",
+          "type": "uint256"
+        },
+        {
+          "name": "destAmount",
+          "type": "uint256"
+        },
+        {
+          "name": "srcDecimals",
+          "type": "uint256"
+        },
+        {
+          "name": "dstDecimals",
+          "type": "uint256"
+        }
+      ],
+      "name": "mockCalcRateFromQty",
+      "outputs": [
+        {
+          "name": "rateResult",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "pure",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.4.18+commit.9cf6e910\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[{\"name\":\"token\",\"type\":\"address\"}],\"name\":\"mockGetDecimalsSafe\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"token\",\"type\":\"address\"}],\"name\":\"mockSetDecimalsSafe\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"srcAmount\",\"type\":\"uint256\"},{\"name\":\"destAmount\",\"type\":\"uint256\"},{\"name\":\"srcDecimals\",\"type\":\"uint256\"},{\"name\":\"dstDecimals\",\"type\":\"uint256\"}],\"name\":\"mockCalcRateFromQty\",\"outputs\":[{\"name\":\"rateResult\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"pure\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"token\",\"type\":\"address\"},{\"name\":\"user\",\"type\":\"address\"}],\"name\":\"getBalance\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{\"getBalance(address,address)\":{\"details\":\"get the balance of a user.\",\"params\":{\"token\":\"The token type\"},\"return\":\"The balance\"}},\"title\":\"Kyber utils contract\"},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/oscarr/Ethereum/frappe/contracts/mockContracts/MockUtils2.sol\":\"MockUtils2\"},\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/oscarr/Ethereum/frappe/contracts/ERC20Interface.sol\":{\"keccak256\":\"0x0e7f8073e3de5997f6c36d7226923c5173b80a834a471f38f6da29d804e96ad0\",\"urls\":[\"bzzr://2ea77f174c95cf0b8383a06a383ca79cdc7296dabb2b79f56f8642abe1d83a5c\"]},\"/Users/oscarr/Ethereum/frappe/contracts/Utils.sol\":{\"keccak256\":\"0x32a3a9ea6af49ab06bee6244697d7f59e291664f50ab77b085f4ee5385928727\",\"urls\":[\"bzzr://dbd83a0b1c6b3fbde0e887a9c08e1f0b6e76647be2cfcc0457b23d74c9163e77\"]},\"/Users/oscarr/Ethereum/frappe/contracts/Utils2.sol\":{\"keccak256\":\"0xcb04bcc734be4a7bc82489cf9c5e740a4c3df9239bdfc287953ceb3c8b7a77f6\",\"urls\":[\"bzzr://b7add0fb7ced2d22f72d6c0b82990941cc3dedcb96ea9b24a30a04ac6c1763c2\"]},\"/Users/oscarr/Ethereum/frappe/contracts/mockContracts/MockUtils2.sol\":{\"keccak256\":\"0x0747c645b1c630f634fc8df203c7d910cdb42775b3556deab713b87ce87bc833\",\"urls\":[\"bzzr://de15dd557e95f74ff1fd833e0163d14dc0ba96dd89b963b39fde311a8e20633c\"]}},\"version\":1}",
+  "bytecode": "0x6060604052341561000f57600080fd5b6105828061001e6000396000f300606060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680635d7d2ed914610067578063d120473f146100b4578063d493bc1b146100ed578063d4fac45d1461013f575b600080fd5b341561007257600080fd5b61009e600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506101ab565b6040518082815260200191505060405180910390f35b34156100bf57600080fd5b6100eb600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506101f3565b005b34156100f857600080fd5b61012960048080359060200190919080359060200190919080359060200190919080359060200190919050506101ff565b6040518082815260200191505060405180910390f35b341561014a57600080fd5b610195600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610217565b6040518082815260200191505060405180910390f35b60008060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020549050919050565b6101fc81610347565b50565b600061020d858585856104a5565b9050949350505050565b600073eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee73ffffffffffffffffffffffffffffffffffffffff168373ffffffffffffffffffffffffffffffffffffffff161415610280578173ffffffffffffffffffffffffffffffffffffffff16319050610341565b8273ffffffffffffffffffffffffffffffffffffffff166370a08231836000604051602001526040518263ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001915050602060405180830381600087803b151561032357600080fd5b6102c65a03f1151561033457600080fd5b5050506040518051905090505b92915050565b73eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee73ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff1614156103d85760126000808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020819055506104a2565b8073ffffffffffffffffffffffffffffffffffffffff1663313ce5676000604051602001526040518163ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401602060405180830381600087803b151561044457600080fd5b6102c65a03f1151561045557600080fd5b505050604051805190506000808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020819055505b50565b60006b204fce5e3e2502611000000085111515156104c257600080fd5b6b204fce5e3e2502611000000084111515156104dd57600080fd5b828210151561051c576012838303111515156104f857600080fd5b84838303600a0a02670de0b6b3a7640000850281151561051457fe5b04905061054e565b60128284031115151561052e57600080fd5b84828403600a0a670de0b6b3a764000086020281151561054a57fe5b0490505b9493505050505600a165627a7a723058205eec1c2b6b68f50f48d4454c9ada4b1e114a8eb56dfaad986846071ba2af53750029",
+  "deployedBytecode": "0x606060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680635d7d2ed914610067578063d120473f146100b4578063d493bc1b146100ed578063d4fac45d1461013f575b600080fd5b341561007257600080fd5b61009e600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506101ab565b6040518082815260200191505060405180910390f35b34156100bf57600080fd5b6100eb600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506101f3565b005b34156100f857600080fd5b61012960048080359060200190919080359060200190919080359060200190919080359060200190919050506101ff565b6040518082815260200191505060405180910390f35b341561014a57600080fd5b610195600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610217565b6040518082815260200191505060405180910390f35b60008060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020549050919050565b6101fc81610347565b50565b600061020d858585856104a5565b9050949350505050565b600073eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee73ffffffffffffffffffffffffffffffffffffffff168373ffffffffffffffffffffffffffffffffffffffff161415610280578173ffffffffffffffffffffffffffffffffffffffff16319050610341565b8273ffffffffffffffffffffffffffffffffffffffff166370a08231836000604051602001526040518263ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001915050602060405180830381600087803b151561032357600080fd5b6102c65a03f1151561033457600080fd5b5050506040518051905090505b92915050565b73eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee73ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff1614156103d85760126000808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020819055506104a2565b8073ffffffffffffffffffffffffffffffffffffffff1663313ce5676000604051602001526040518163ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401602060405180830381600087803b151561044457600080fd5b6102c65a03f1151561045557600080fd5b505050604051805190506000808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020819055505b50565b60006b204fce5e3e2502611000000085111515156104c257600080fd5b6b204fce5e3e2502611000000084111515156104dd57600080fd5b828210151561051c576012838303111515156104f857600080fd5b84838303600a0a02670de0b6b3a7640000850281151561051457fe5b04905061054e565b60128284031115151561052e57600080fd5b84828403600a0a670de0b6b3a764000086020281151561054a57fe5b0490505b9493505050505600a165627a7a723058205eec1c2b6b68f50f48d4454c9ada4b1e114a8eb56dfaad986846071ba2af53750029",
+  "sourceMap": "84:482:47:-;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "84:482:47:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;120:107;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;233:84;;;;;;;;;;;;;;;;;;;;;;;;;;;;323:241;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;186:208:22;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;120:107:47;182:4;205:8;:15;214:5;205:15;;;;;;;;;;;;;;;;198:22;;120:107;;;:::o;233:84::-;292:18;304:5;292:11;:18::i;:::-;233:84;:::o;323:241::-;449:15;493:64;509:9;520:10;532:11;545;493:15;:64::i;:::-;480:77;;323:241;;;;;;:::o;186:208:22:-;253:4;167:44:21;273:26:22;;:5;:26;;;269:118;;;320:4;:12;;;313:19;;;;269:118;366:5;:15;;;382:4;366:21;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;359:28;;186:208;;;;;:::o;561:171:21:-;167:44;618:26;;:5;:26;;;614:111;;;506:2;646:8;:15;655:5;646:15;;;;;;;;;;;;;;;:30;;;;614:111;;;709:5;:14;;;:16;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;691:8;:15;700:5;691:15;;;;;;;;;;;;;;;:34;;;;614:111;561:171;:::o;979:614:22:-;1103:4;305:6:21;1131:9:22;:20;;1123:29;;;;;;;;305:6:21;1170:10:22;:21;;1162:30;;;;;;;;1222:11;1207;:26;;1203:384;;;459:2:21;1272:11:22;1258;:25;1257:43;;1249:52;;;;;;;;1387:9;1371:11;1357;:25;1350:2;:33;1349:47;255:6:21;1323:10:22;:22;:74;;;;;;;;1315:83;;;;1203:384;459:2:21;1452:11:22;1438;:25;1437:43;;1429:52;;;;;;;;1566:9;1550:11;1536;:25;1529:2;:33;255:6:21;1503:10:22;:22;:60;:72;;;;;;;;1495:81;;979:614;;;;;;;:::o",
+  "source": "pragma solidity 0.4.18;\n\n\nimport \"../Utils2.sol\";\n\n\n/// @title Kyber utils contract\ncontract MockUtils2 is Utils2 {\n    function mockGetDecimalsSafe(ERC20 token) public view returns(uint) {\n        return decimals[token];\n    }\n\n    function mockSetDecimalsSafe(ERC20 token) public {\n        setDecimals(token);\n    }\n\n    function mockCalcRateFromQty(uint srcAmount, uint destAmount, uint srcDecimals, uint dstDecimals)\n        public pure returns(uint rateResult)\n    {\n        rateResult = calcRateFromQty(srcAmount, destAmount, srcDecimals, dstDecimals);\n    }\n}\n",
+  "sourcePath": "/Users/oscarr/Ethereum/frappe/contracts/mockContracts/MockUtils2.sol",
+  "ast": {
+    "absolutePath": "/Users/oscarr/Ethereum/frappe/contracts/mockContracts/MockUtils2.sol",
+    "exportedSymbols": {
+      "MockUtils2": [
+        14468
+      ]
+    },
+    "id": 14469,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 14419,
+        "literals": [
+          "solidity",
+          "0.4",
+          ".18"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:47"
+      },
+      {
+        "absolutePath": "/Users/oscarr/Ethereum/frappe/contracts/Utils2.sol",
+        "file": "../Utils2.sol",
+        "id": 14420,
+        "nodeType": "ImportDirective",
+        "scope": 14469,
+        "sourceUnit": 9276,
+        "src": "26:23:47",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": [],
+            "baseName": {
+              "contractScope": null,
+              "id": 14421,
+              "name": "Utils2",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 9275,
+              "src": "107:6:47",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Utils2_$9275",
+                "typeString": "contract Utils2"
+              }
+            },
+            "id": 14422,
+            "nodeType": "InheritanceSpecifier",
+            "src": "107:6:47"
+          }
+        ],
+        "contractDependencies": [
+          9093,
+          9275
+        ],
+        "contractKind": "contract",
+        "documentation": "@title Kyber utils contract",
+        "fullyImplemented": true,
+        "id": 14468,
+        "linearizedBaseContracts": [
+          14468,
+          9275,
+          9093
+        ],
+        "name": "MockUtils2",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 14433,
+              "nodeType": "Block",
+              "src": "188:39:47",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "baseExpression": {
+                      "argumentTypes": null,
+                      "id": 14429,
+                      "name": "decimals",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 8853,
+                      "src": "205:8:47",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                        "typeString": "mapping(address => uint256)"
+                      }
+                    },
+                    "id": 14431,
+                    "indexExpression": {
+                      "argumentTypes": null,
+                      "id": 14430,
+                      "name": "token",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 14424,
+                      "src": "214:5:47",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_ERC20_$1559",
+                        "typeString": "contract ERC20"
+                      }
+                    },
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "IndexAccess",
+                    "src": "205:15:47",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 14428,
+                  "id": 14432,
+                  "nodeType": "Return",
+                  "src": "198:22:47"
+                }
+              ]
+            },
+            "id": 14434,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "mockGetDecimalsSafe",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 14425,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 14424,
+                  "name": "token",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14434,
+                  "src": "149:11:47",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_ERC20_$1559",
+                    "typeString": "contract ERC20"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 14423,
+                    "name": "ERC20",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 1559,
+                    "src": "149:5:47",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_ERC20_$1559",
+                      "typeString": "contract ERC20"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "148:13:47"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 14428,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 14427,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14434,
+                  "src": "182:4:47",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 14426,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "182:4:47",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "181:6:47"
+            },
+            "scope": 14468,
+            "src": "120:107:47",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 14443,
+              "nodeType": "Block",
+              "src": "282:35:47",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 14440,
+                        "name": "token",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 14436,
+                        "src": "304:5:47",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_ERC20_$1559",
+                          "typeString": "contract ERC20"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_contract$_ERC20_$1559",
+                          "typeString": "contract ERC20"
+                        }
+                      ],
+                      "id": 14439,
+                      "name": "setDecimals",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 8877,
+                      "src": "292:11:47",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_contract$_ERC20_$1559_$returns$__$",
+                        "typeString": "function (contract ERC20)"
+                      }
+                    },
+                    "id": 14441,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "292:18:47",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 14442,
+                  "nodeType": "ExpressionStatement",
+                  "src": "292:18:47"
+                }
+              ]
+            },
+            "id": 14444,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "mockSetDecimalsSafe",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 14437,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 14436,
+                  "name": "token",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14444,
+                  "src": "262:11:47",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_ERC20_$1559",
+                    "typeString": "contract ERC20"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 14435,
+                    "name": "ERC20",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 1559,
+                    "src": "262:5:47",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_ERC20_$1559",
+                      "typeString": "contract ERC20"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "261:13:47"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 14438,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "282:0:47"
+            },
+            "scope": 14468,
+            "src": "233:84:47",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 14466,
+              "nodeType": "Block",
+              "src": "470:94:47",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 14464,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 14457,
+                      "name": "rateResult",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 14455,
+                      "src": "480:10:47",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 14459,
+                          "name": "srcAmount",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 14446,
+                          "src": "509:9:47",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        {
+                          "argumentTypes": null,
+                          "id": 14460,
+                          "name": "destAmount",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 14448,
+                          "src": "520:10:47",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        {
+                          "argumentTypes": null,
+                          "id": 14461,
+                          "name": "srcDecimals",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 14450,
+                          "src": "532:11:47",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        {
+                          "argumentTypes": null,
+                          "id": 14462,
+                          "name": "dstDecimals",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 14452,
+                          "src": "545:11:47",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        ],
+                        "id": 14458,
+                        "name": "calcRateFromQty",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 9274,
+                        "src": "493:15:47",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_uint256_$_t_uint256_$_t_uint256_$returns$_t_uint256_$",
+                          "typeString": "function (uint256,uint256,uint256,uint256) pure returns (uint256)"
+                        }
+                      },
+                      "id": 14463,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "functionCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "493:64:47",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "480:77:47",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 14465,
+                  "nodeType": "ExpressionStatement",
+                  "src": "480:77:47"
+                }
+              ]
+            },
+            "id": 14467,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "mockCalcRateFromQty",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 14453,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 14446,
+                  "name": "srcAmount",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14467,
+                  "src": "352:14:47",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 14445,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "352:4:47",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 14448,
+                  "name": "destAmount",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14467,
+                  "src": "368:15:47",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 14447,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "368:4:47",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 14450,
+                  "name": "srcDecimals",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14467,
+                  "src": "385:16:47",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 14449,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "385:4:47",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 14452,
+                  "name": "dstDecimals",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14467,
+                  "src": "403:16:47",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 14451,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "403:4:47",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "351:69:47"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 14456,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 14455,
+                  "name": "rateResult",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14467,
+                  "src": "449:15:47",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 14454,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "449:4:47",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "448:17:47"
+            },
+            "scope": 14468,
+            "src": "323:241:47",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 14469,
+        "src": "84:482:47"
+      }
+    ],
+    "src": "0:567:47"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/oscarr/Ethereum/frappe/contracts/mockContracts/MockUtils2.sol",
+    "exportedSymbols": {
+      "MockUtils2": [
+        14468
+      ]
+    },
+    "id": 14469,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 14419,
+        "literals": [
+          "solidity",
+          "0.4",
+          ".18"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:47"
+      },
+      {
+        "absolutePath": "/Users/oscarr/Ethereum/frappe/contracts/Utils2.sol",
+        "file": "../Utils2.sol",
+        "id": 14420,
+        "nodeType": "ImportDirective",
+        "scope": 14469,
+        "sourceUnit": 9276,
+        "src": "26:23:47",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": [],
+            "baseName": {
+              "contractScope": null,
+              "id": 14421,
+              "name": "Utils2",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 9275,
+              "src": "107:6:47",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Utils2_$9275",
+                "typeString": "contract Utils2"
+              }
+            },
+            "id": 14422,
+            "nodeType": "InheritanceSpecifier",
+            "src": "107:6:47"
+          }
+        ],
+        "contractDependencies": [
+          9093,
+          9275
+        ],
+        "contractKind": "contract",
+        "documentation": "@title Kyber utils contract",
+        "fullyImplemented": true,
+        "id": 14468,
+        "linearizedBaseContracts": [
+          14468,
+          9275,
+          9093
+        ],
+        "name": "MockUtils2",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 14433,
+              "nodeType": "Block",
+              "src": "188:39:47",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "baseExpression": {
+                      "argumentTypes": null,
+                      "id": 14429,
+                      "name": "decimals",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 8853,
+                      "src": "205:8:47",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                        "typeString": "mapping(address => uint256)"
+                      }
+                    },
+                    "id": 14431,
+                    "indexExpression": {
+                      "argumentTypes": null,
+                      "id": 14430,
+                      "name": "token",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 14424,
+                      "src": "214:5:47",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_ERC20_$1559",
+                        "typeString": "contract ERC20"
+                      }
+                    },
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "IndexAccess",
+                    "src": "205:15:47",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 14428,
+                  "id": 14432,
+                  "nodeType": "Return",
+                  "src": "198:22:47"
+                }
+              ]
+            },
+            "id": 14434,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "mockGetDecimalsSafe",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 14425,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 14424,
+                  "name": "token",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14434,
+                  "src": "149:11:47",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_ERC20_$1559",
+                    "typeString": "contract ERC20"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 14423,
+                    "name": "ERC20",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 1559,
+                    "src": "149:5:47",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_ERC20_$1559",
+                      "typeString": "contract ERC20"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "148:13:47"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 14428,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 14427,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14434,
+                  "src": "182:4:47",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 14426,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "182:4:47",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "181:6:47"
+            },
+            "scope": 14468,
+            "src": "120:107:47",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 14443,
+              "nodeType": "Block",
+              "src": "282:35:47",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 14440,
+                        "name": "token",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 14436,
+                        "src": "304:5:47",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_ERC20_$1559",
+                          "typeString": "contract ERC20"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_contract$_ERC20_$1559",
+                          "typeString": "contract ERC20"
+                        }
+                      ],
+                      "id": 14439,
+                      "name": "setDecimals",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 8877,
+                      "src": "292:11:47",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_contract$_ERC20_$1559_$returns$__$",
+                        "typeString": "function (contract ERC20)"
+                      }
+                    },
+                    "id": 14441,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "292:18:47",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 14442,
+                  "nodeType": "ExpressionStatement",
+                  "src": "292:18:47"
+                }
+              ]
+            },
+            "id": 14444,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "mockSetDecimalsSafe",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 14437,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 14436,
+                  "name": "token",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14444,
+                  "src": "262:11:47",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_ERC20_$1559",
+                    "typeString": "contract ERC20"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 14435,
+                    "name": "ERC20",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 1559,
+                    "src": "262:5:47",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_ERC20_$1559",
+                      "typeString": "contract ERC20"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "261:13:47"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 14438,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "282:0:47"
+            },
+            "scope": 14468,
+            "src": "233:84:47",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 14466,
+              "nodeType": "Block",
+              "src": "470:94:47",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 14464,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 14457,
+                      "name": "rateResult",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 14455,
+                      "src": "480:10:47",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 14459,
+                          "name": "srcAmount",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 14446,
+                          "src": "509:9:47",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        {
+                          "argumentTypes": null,
+                          "id": 14460,
+                          "name": "destAmount",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 14448,
+                          "src": "520:10:47",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        {
+                          "argumentTypes": null,
+                          "id": 14461,
+                          "name": "srcDecimals",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 14450,
+                          "src": "532:11:47",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        {
+                          "argumentTypes": null,
+                          "id": 14462,
+                          "name": "dstDecimals",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 14452,
+                          "src": "545:11:47",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        ],
+                        "id": 14458,
+                        "name": "calcRateFromQty",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 9274,
+                        "src": "493:15:47",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_uint256_$_t_uint256_$_t_uint256_$returns$_t_uint256_$",
+                          "typeString": "function (uint256,uint256,uint256,uint256) pure returns (uint256)"
+                        }
+                      },
+                      "id": 14463,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "functionCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "493:64:47",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "480:77:47",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 14465,
+                  "nodeType": "ExpressionStatement",
+                  "src": "480:77:47"
+                }
+              ]
+            },
+            "id": 14467,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "mockCalcRateFromQty",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 14453,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 14446,
+                  "name": "srcAmount",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14467,
+                  "src": "352:14:47",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 14445,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "352:4:47",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 14448,
+                  "name": "destAmount",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14467,
+                  "src": "368:15:47",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 14447,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "368:4:47",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 14450,
+                  "name": "srcDecimals",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14467,
+                  "src": "385:16:47",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 14449,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "385:4:47",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 14452,
+                  "name": "dstDecimals",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14467,
+                  "src": "403:16:47",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 14451,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "403:4:47",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "351:69:47"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 14456,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 14455,
+                  "name": "rateResult",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 14467,
+                  "src": "449:15:47",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 14454,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "449:4:47",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "448:17:47"
+            },
+            "scope": 14468,
+            "src": "323:241:47",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 14469,
+        "src": "84:482:47"
+      }
+    ],
+    "src": "0:567:47"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.18+commit.9cf6e910.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.0.6",
+  "updatedAt": "2019-05-18T17:14:13.255Z",
+  "devdoc": {
+    "methods": {
+      "getBalance(address,address)": {
+        "details": "get the balance of a user.",
+        "params": {
+          "token": "The token type"
+        },
+        "return": "The balance"
+      }
+    },
+    "title": "Kyber utils contract"
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}
