@@ -1,7 +1,7 @@
-
+require("dotenv").config(); // Store environment-specific variable from '.env' to process.env
 const path = require("path");
-require("dotenv").config();
-const HDWalletProvider = require("truffle-hdwallet-provider");
+var HDWalletProvider = require("truffle-hdwallet-provider");
+var mnemonic = process.env.MNENOMIC;
 
 module.exports = {
   // See <http://truffleframework.com/docs/advanced/configuration>
@@ -23,10 +23,12 @@ module.exports = {
       network_id: "*", // match any network
       websockets: true
     },
-  },
-  compilers: {
-    solc: {
-      version: "0.4.18"
+    rinkeby: {
+      // must be a thunk, otherwise truffle commands may hang in CI
+      provider: () =>
+        new HDWalletProvider(mnemonic, process.env.RINKEBY_API_URL),
+      network_id: "4",
+      skipDryRun: true
     }
   }
 };
