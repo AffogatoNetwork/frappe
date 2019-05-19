@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Container, Col, Row, Form, FormGroup } from "reactstrap";
-import { Heading, Field, Input, Button, Card, OutlineButton } from "rimble-ui";
+import { Heading, Field, Input, Button, Card, Avatar } from "rimble-ui";
 
-class FormView extends Component {
+class TipForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -29,7 +29,7 @@ class FormView extends Component {
     event.preventDefault();
     let url = `https://verify.testwyre.com/widget/v1?env=test&operation=debitcard&accountId=AC_1234&authType=secretKey&destCurrency=ETH&sourceCurrency=USD&sourceAmount=${
       this.state.amount
-    }&dest=ethereum:${this.props.account}&redirectUrl=https://sendwyre.com`;
+    }&dest=ethereum:0x930A7CD60A633128B7c5181307781e6d033BA51a&redirectUrl=https://sendwyre.com`;
     window.open(url, "_blank");
   }
 
@@ -39,9 +39,23 @@ class FormView extends Component {
         <Container className="mt-4">
           <Row className="justify-content-center">
             <Col lg="6">
-              <Heading.h2>Buy Ether</Heading.h2>
+              <Heading.h2>Send a Tip</Heading.h2>
+
               <Card className="mt-4 mx-auto">
-                <Form className="form" onSubmit={this.onFormSubmit}>
+                <Avatar
+                  className=" mx-auto mb-4"
+                  size="150px"
+                  src="https://www.coffeedetective.com/images/coffee-farmer.jpg"
+                />
+                <text className="mt-4">
+                  The best coffee experience was born in the shadows of the Três
+                  Pontas Mountains in Brazil with the benefits of using
+                  fair-trade standards. Our premium-quality coffee is named Três
+                  Pontas out of respect for the ideal geographical requirements
+                  for coffee bean cultivation in Brazil and the single-farm
+                  source we use that resides there.
+                </text>
+                <Form className="form mt-4" onSubmit={this.onFormSubmit}>
                   <FormGroup>
                     <Field label="USD Amount">
                       <Input
@@ -55,7 +69,7 @@ class FormView extends Component {
                     </Field>
                   </FormGroup>
                   <Button disabled={this.state.disabled} icon="AttachMoney">
-                    Buy Ether
+                    Send Tip
                   </Button>
                 </Form>
               </Card>
@@ -67,4 +81,4 @@ class FormView extends Component {
   }
 }
 
-export default FormView;
+export default TipForm;

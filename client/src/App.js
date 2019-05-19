@@ -5,6 +5,7 @@ import Fortmatic from "fortmatic";
 import "./App.css";
 import Header from "./components/Header";
 import FormView from "./components/FormView.js";
+import TipForm from "./components/TipForm";
 import { Container, Col, Row, Form, FormGroup } from "reactstrap";
 import { Heading, Field, Input, Button, Card, OutlineButton } from "rimble-ui";
 import FortmaticLogin from "./components/FortmaticLogin.js";
@@ -132,6 +133,7 @@ class App extends Component {
       <>
         <Header account={accounts[0]} web3={window.web3} contracts={contract} />
         <FormView account={accounts[0]} />
+        <TipForm />
       </>
     );
   }
