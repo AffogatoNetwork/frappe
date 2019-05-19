@@ -5,6 +5,8 @@ import Fortmatic from "fortmatic";
 import "./App.css";
 import Header from "./components/Header";
 import FormView from "./components/FormView.js";
+import { Container, Col, Row, Form, FormGroup } from "reactstrap";
+import { Heading, Field, Input, Button, Card, OutlineButton } from "rimble-ui";
 
 class App extends Component {
   state = { storageValue: 0, web3: null, accounts: null, contract: null };
@@ -72,8 +74,28 @@ class App extends Component {
 
   render() {
     const { accounts, contract } = this.state;
+    console.log(accounts);
     if (!this.state.web3) {
       return <div>Loading Web3, accounts, and contract...</div>;
+    }
+    if (!accounts[0]) {
+      return (
+        <>
+          <Container className="mt-4">
+            <Row className="justify-content-center">
+              <Col lg="6">
+                <Heading.h2>Missing Web3 Provider</Heading.h2>
+                <Card className="mt-4 mx-auto">
+                  <p>
+                    Login with Google pressing the blue button in the left
+                    corner and then refresh the website
+                  </p>
+                </Card>
+              </Col>
+            </Row>
+          </Container>
+        </>
+      );
     }
     return (
       <>
