@@ -13,8 +13,9 @@ module.exports = {
       provider: function () {
         return new HDWalletProvider(process.env.ROPSTEN_PRIVATE_KEY, "https://kovan.infura.io/v3/29ba9ffaf85e40a39f0aeea2361a8b88")
       },
-      network_id: "*",
-      skipDryRun: true //make sure this gas allocation isn't over 4M, which is the max
+      network_id: 3,
+      skipDryRun: true,
+      gas: 4000000      //make sure this gas allocation isn't over 4M, which is the max
     },
     development: {
       host: "127.0.0.1",
