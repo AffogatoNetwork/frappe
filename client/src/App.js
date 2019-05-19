@@ -7,9 +7,20 @@ import Header from "./components/Header";
 import FormView from "./components/FormView.js";
 import { Container, Col, Row, Form, FormGroup } from "reactstrap";
 import { Heading, Field, Input, Button, Card, OutlineButton } from "rimble-ui";
+import FortmaticLogin from "./components/FortmaticLogin.js";
 
 class App extends Component {
-  state = { storageValue: 0, web3: null, accounts: null, contract: null };
+  constructor(props) {
+    super(props);
+    this.state = {
+      storageValue: 0,
+      web3: null,
+      accounts: null,
+      contract: null
+    };
+
+    this.setFortmatic = this.setFortmatic.bind(this);
+  }
 
   componentDidMount = async () => {
     try {
@@ -38,18 +49,10 @@ class App extends Component {
       const accounts = await web3.eth.getAccounts();
       console.log(accounts);
 
-      // Get the contract instance.
-      const networkId = await web3.eth.net.getId();
-      const deployedNetwork = SimpleStorageContract.networks[networkId];
-      const instance = new web3.eth.Contract(
-        SimpleStorageContract.abi,
-        deployedNetwork && deployedNetwork.address
-      );
-
       // Set web3, accounts, and contract to the state, and then proceed with an
       // example of interacting with the contract's methods.
       console.log(web3);
-      this.setState({ web3, accounts, contract: instance });
+      this.setState({ web3, accounts });
     } catch (error) {
       // Catch any errors for any of the above operations.
       alert(
@@ -58,6 +61,26 @@ class App extends Component {
       console.error(error);
     }
   };
+
+  async setFortmatic(event) {
+    let fm = new Fortmatic("pk_test_C6808B2B488687F6", "kovan");
+    let web3;
+    // Post EIP-1102 update which MetaMask no longer injects web3
+
+    web3 = new Web3(fm.getProvider());
+
+    // Legacy dApp browsers which web3 is still being injected
+
+    window.web3 = new Web3(fm.getProvider());
+    // U/se web3 to get the user's accounts.
+    const accounts = await web3.eth.getAccounts();
+    this.setState({ web3, accounts });
+    console.log(accounts);
+    // Get the contract instance.
+    // Set web3, accounts, and contract to the state, and then proceed with an
+    // example of interacting with the contract's methods.
+    console.log(web3);
+  }
 
   runExample = async () => {
     const { accounts, contract } = this.state;
@@ -86,10 +109,18 @@ class App extends Component {
               <Col lg="6">
                 <Heading.h2>Missing Web3 Provider</Heading.h2>
                 <Card className="mt-4 mx-auto">
+                  <Heading.h4>Login with Google</Heading.h4>
                   <p>
                     Login with Google pressing the blue button in the left
                     corner and then refresh the website
                   </p>
+                </Card>
+                <Card className="mt-4 mx-auto">
+                  <Heading.h4>Login with Fortmatic</Heading.h4>
+                  <p>Press the button and use your cellphone to login</p>
+                  <Button onClick={this.setFortmatic}>
+                    Login with Fortmatic
+                  </Button>
                 </Card>
               </Col>
             </Row>

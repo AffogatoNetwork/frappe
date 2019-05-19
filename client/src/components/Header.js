@@ -43,7 +43,7 @@ class Header extends Component {
           toggle={this.onDismiss}
         >
           ⚠️ This is a non audited Hackathon Demo! We recommend to use it on{" "}
-          <b>Rinkeby</b>
+          <b>Kovan</b>
         </Alert>
         <Nav className="mt-4 justify-content-end">
           <NavItem className="ml-2 mr-4 mt-4 pt-1 text-left ">
